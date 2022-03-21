@@ -195,3 +195,10 @@ fn main() {
     let leet_str = leet(argv);
     println!("{}", leet_str);
 }
+
+#[test]
+fn test_leet() {
+    assert_ne!(leet(String::from("hello")), "hello");
+    assert_ne!(leet(String::from("hello1234567890")), "hello1234567890");
+    assert_eq!(leet(String::from("1234567890")), "1234567890");
+}
