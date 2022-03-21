@@ -166,10 +166,7 @@ fn get_random_num(max: usize) -> usize {
     rand::thread_rng().gen_range(0..max)
 }
 
-fn main() {
-    let args: Vec<String> = env::args().collect();
-    let argv = args[1].to_string();
-
+fn leet(text: String) -> String {
     let leets = get_leet_list();
     let mut leet_index: Vec<String> = Vec::new();
     for (i, _) in leets.iter().enumerate() {
@@ -178,7 +175,7 @@ fn main() {
 
     let mut leet_str: String = "".to_string();
 
-    for c in argv.chars() {
+    for c in text.chars() {
         let upper_c = c.to_uppercase();
         let result = get_leet_index(upper_c.to_string(), leet_index.clone());
         if result.0 == true {
@@ -189,5 +186,12 @@ fn main() {
         }
     }
 
+    return leet_str;
+}
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+    let argv = args[1].to_string();
+    let leet_str = leet(argv);
     println!("{}", leet_str);
 }
