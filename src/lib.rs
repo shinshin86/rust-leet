@@ -154,11 +154,11 @@ fn get_leet_list() -> Vec<Vec<String>> {
 
 fn get_leet_index(c: String, leet_index: Vec<String>) -> (bool, usize) {
     for (i, val) in leet_index.iter().enumerate() {
-        if c == val.to_string() {
+        if c == *val {
             return (true, i);
         }
     }
-    return (false, 0);
+    (false, 0)
 }
 
 fn get_random_num(max: usize) -> usize {
@@ -177,7 +177,7 @@ pub fn leet(text: String) -> String {
     for c in text.chars() {
         let upper_c = c.to_uppercase();
         let result = get_leet_index(upper_c.to_string(), leet_index.clone());
-        if result.0 == true {
+        if result.0 {
             let rnum = get_random_num(leets[result.1].len());
             leet_str = leet_str + &leets[result.1][rnum];
         } else {
@@ -185,7 +185,7 @@ pub fn leet(text: String) -> String {
         }
     }
 
-    return leet_str;
+    leet_str
 }
 
 #[test]
