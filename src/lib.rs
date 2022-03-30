@@ -1,5 +1,4 @@
 use rand::Rng;
-use std::env;
 
 fn get_leet_list() -> Vec<Vec<String>> {
     let a = vec!["A", "4", "/\\", "@", "/-\\", "^", "aye", "(L", "Д"]
@@ -166,7 +165,7 @@ fn get_random_num(max: usize) -> usize {
     rand::thread_rng().gen_range(0..max)
 }
 
-fn leet(text: String) -> String {
+pub fn leet(text: String) -> String {
     let leets = get_leet_list();
     let mut leet_index: Vec<String> = Vec::new();
     for (i, _) in leets.iter().enumerate() {
@@ -187,13 +186,6 @@ fn leet(text: String) -> String {
     }
 
     return leet_str;
-}
-
-fn main() {
-    let args: Vec<String> = env::args().collect();
-    let argv = args[1].to_string();
-    let leet_str = leet(argv);
-    println!("{}", leet_str);
 }
 
 #[test]
