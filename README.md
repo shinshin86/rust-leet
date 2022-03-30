@@ -1,4 +1,6 @@
 # rust-leet
+[![Rust CI](https://github.com/shinshin86/rust-leet/actions/workflows/main.yml/badge.svg)](https://github.com/shinshin86/rust-leet/actions/workflows/main.yml)
+
 Implements leetspeak converter at Rust.
 This is created to learn Rust.
 
